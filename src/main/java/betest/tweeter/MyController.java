@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import betest.tweeter.entities.Like;
 import betest.tweeter.entities.Tweet;
+import betest.tweeter.entities.custom.ITweetCust;
 import betest.tweeter.repos.LikeRepository;
 import betest.tweeter.repos.TweetRepository;
 
@@ -22,6 +23,11 @@ public class MyController {
 	@GetMapping("/tweets")
 	public List<Tweet> allTweets() {
 		return tweetRepo.findAll();
+	}
+	
+	@GetMapping("/ctweets")
+	public List<ITweetCust> custTweets() {
+		return tweetRepo.getTweetCustNative();
 	}
 	
 	@GetMapping("/likes")
