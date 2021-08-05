@@ -1,4 +1,4 @@
-package ac8200.betest.tweeter;
+package betest.tweeter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
