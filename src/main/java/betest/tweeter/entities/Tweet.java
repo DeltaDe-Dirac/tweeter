@@ -1,11 +1,13 @@
 package betest.tweeter.entities;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,11 +15,14 @@ import javax.persistence.Table;
 public class Tweet {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Integer id;
 	private String textContent;
 	private String username;
 	private Timestamp timestamp;
+	
+	@OneToMany(mappedBy = "postID")
+    private List<Like> likes;
 
 	public Tweet() {
 	}
@@ -27,6 +32,16 @@ public class Tweet {
 		this.setTextContent(textContent);
 		this.setUsername(username);
 		this.setTimestamp(timestamp);
+	}
+
+	
+	
+	public List<Like> getLikes() {
+		return likes;
+	}
+
+	public void setLikes(List<Like> likes) {
+		this.likes = likes;
 	}
 
 	public String getTextContent() {

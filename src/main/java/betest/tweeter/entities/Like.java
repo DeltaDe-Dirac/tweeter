@@ -2,9 +2,9 @@ package betest.tweeter.entities;
 
 import java.sql.Timestamp;
 import java.util.Objects;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,6 +13,8 @@ import javax.persistence.Table;
 public class Like {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private Integer postID;
 	private String username;
 	private Timestamp timestamp;
