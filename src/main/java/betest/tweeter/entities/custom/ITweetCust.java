@@ -9,5 +9,5 @@ public interface ITweetCust {
     String getUsername();
     Timestamp getTimestamp();
     Integer getLikes_count();
-//    Integer gerRetweetsCount();
+    Integer getRetweets_count();
 }

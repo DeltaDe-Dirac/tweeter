@@ -30,6 +30,11 @@ public class MyController {
 		return tweetRepo.getTweetCustNative();
 	}
 	
+	@GetMapping("/ctweets2")
+	public List<ITweetCust> custTweets2() {
+		return tweetRepo.getTweetCust2Native();
+	}
+	
 	@GetMapping("/likes")
 	public List<Like> allLikes() {
 		return likeRepo.findAll();
