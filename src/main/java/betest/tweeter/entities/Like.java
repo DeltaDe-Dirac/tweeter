@@ -13,10 +13,10 @@ public class Like {
 	private String username;
 	private Timestamp timestamp;
 
-	Like() {
+	public Like() {
 	}
 
-	Like(Integer postID, String username, Timestamp timestamp) {
+	public Like(Integer postID, String username, Timestamp timestamp) {
 
 		this.setUsername(username);
 		this.setPostID(postID);

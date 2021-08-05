@@ -17,10 +17,10 @@ public class Tweet {
 	private String username;
 	private Timestamp timestamp;
 
-	Tweet() {
+	public Tweet() {
 	}
 
-	Tweet(String textContent, String username, Timestamp timestamp) {
+	public Tweet(String textContent, String username, Timestamp timestamp) {
 
 		this.setTextContent(textContent);
 		this.setUsername(username);

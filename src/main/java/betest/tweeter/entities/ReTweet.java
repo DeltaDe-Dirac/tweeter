@@ -14,10 +14,10 @@ public class ReTweet {
 	private String username;
 	private Timestamp timestamp;
 
-	ReTweet() {
+	public ReTweet() {
 	}
 
-	ReTweet(Integer postID, String username, Timestamp timestamp) {
+	public ReTweet(Integer postID, String username, Timestamp timestamp) {
 
 		this.setPostID(postID);
 		this.setUsername(username);
