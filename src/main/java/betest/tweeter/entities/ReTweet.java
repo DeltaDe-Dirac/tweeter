@@ -5,8 +5,10 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "retweet")
 public class ReTweet {
 
 	@Id
