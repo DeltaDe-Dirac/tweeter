@@ -17,8 +17,6 @@ class PreloadReTweets {
 	CommandLineRunner initReTweets(ReTweetRepository repository) {
 
 		return args -> {
-			LOG.info(repository.save(new ReTweet(1, "John Doe", Timestamp.valueOf("2021-08-05 09:47:23"))).toString());
-			
 			LOG.info(repository.save(new ReTweet(2, "Quentin Tarantino", Timestamp.valueOf("2020-12-18 16:18:12"))).toString());
 			LOG.info(repository.save(new ReTweet(2, "Julia Roberts", Timestamp.valueOf("2020-12-18 16:19:05"))).toString());
 			LOG.info(repository.save(new ReTweet(2, "Jennifer Aniston", Timestamp.valueOf("2020-12-18 18:44:33"))).toString());	
