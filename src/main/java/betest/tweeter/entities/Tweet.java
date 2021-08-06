@@ -20,9 +20,6 @@ public class Tweet {
 	private String textContent;
 	private String username;
 	private Timestamp timestamp;
-	
-	@OneToMany(mappedBy = "postID")
-    private List<Like> likes;
 
 	public Tweet() {
 	}
@@ -32,16 +29,6 @@ public class Tweet {
 		this.setTextContent(textContent);
 		this.setUsername(username);
 		this.setTimestamp(timestamp);
-	}
-
-	
-	
-	public List<Like> getLikes() {
-		return likes;
-	}
-
-	public void setLikes(List<Like> likes) {
-		this.likes = likes;
 	}
 
 	public String getTextContent() {
