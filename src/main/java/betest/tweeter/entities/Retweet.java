@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "retweets")
-public class ReTweet {
+public class Retweet {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class ReTweet {
 	private String username;
 	private Timestamp timestamp;
 
-	public ReTweet() {
+	public Retweet() {
 	}
 
-	public ReTweet(Integer postID, String username, Timestamp timestamp) {
+	public Retweet(Integer postID, String username, Timestamp timestamp) {
 
 		this.setPostID(postID);
 		this.setUsername(username);
@@ -56,7 +56,7 @@ public class ReTweet {
 
 	@Override
 	public String toString() {
-		StringBuilder retweet = new StringBuilder("ReTweet [id=");
+		StringBuilder retweet = new StringBuilder("Retweet [id=");
 
 		retweet.append(this.postID);
 		retweet.append(", username=");
@@ -72,9 +72,9 @@ public class ReTweet {
 
 		if (this == o)
 			return true;
-		if (!(o instanceof ReTweet))
+		if (!(o instanceof Retweet))
 			return false;
-		ReTweet retweet = (ReTweet) o;
+		Retweet retweet = (Retweet) o;
 		return Objects.equals(this.postID, retweet.postID) && Objects.equals(this.username, retweet.username)
 				&& Objects.equals(this.timestamp, retweet.timestamp);
 	}
