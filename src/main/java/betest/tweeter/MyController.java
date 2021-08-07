@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,7 +60,7 @@ public class MyController {
 		return tweetRepo.save(newTweet);
 	}
 
-	@PutMapping("/tweets/{id}/likes")
+	@PostMapping("/tweets/{id}/likes")
 	public Like tweetLike(@RequestBody LikeDto newLikeDto, @PathVariable Integer id) {
 		modelMapper.typeMap(LikeDto.class, Like.class);
 		Like newLike = modelMapper.map(newLikeDto, Like.class);
@@ -77,7 +76,7 @@ public class MyController {
 		return likeRepo.save(newLike);
 	}
 	
-	@PutMapping("/tweets/{id}/retweet")
+	@PostMapping("/tweets/{id}/retweet")
 	public Retweet newRetweet(@RequestBody RetweetDto newRetweetDto, @PathVariable Integer id) {
 		modelMapper.typeMap(RetweetDto.class, Retweet.class);
 		Retweet retweet = modelMapper.map(newRetweetDto, Retweet.class);
