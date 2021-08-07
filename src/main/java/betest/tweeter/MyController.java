@@ -2,6 +2,7 @@ package betest.tweeter;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import betest.tweeter.entities.Like;
 import betest.tweeter.entities.Tweet;
+import betest.tweeter.entities.TweetNotFoundException;
 import betest.tweeter.entities.custom.IRetweetCust;
 import betest.tweeter.entities.custom.ITweetCust;
+import betest.tweeter.entities.dto.LikeDto;
 import betest.tweeter.entities.dto.TweetDto;
 import betest.tweeter.repos.LikeRepository;
 import betest.tweeter.repos.ReTweetRepository;
@@ -54,5 +57,21 @@ public class MyController {
 		Tweet newTweet = modelMapper.map(newTweetTdo, Tweet.class);
 		newTweet.setTimestamp(new Timestamp(System.currentTimeMillis()));
 		return tweetRepo.save(newTweet);
+	}
+
+	@PutMapping("/tweets/{id}/likes")
+	public Like tweetLike(@RequestBody LikeDto newLikeDto, @PathVariable Integer id) {
+		modelMapper.typeMap(LikeDto.class, Like.class);
+		Like newLike = modelMapper.map(newLikeDto, Like.class);
+		Optional<Tweet> optTweet = tweetRepo.findById(id);
+
+		if (optTweet.isPresent()) {
+			Tweet tweet = optTweet.get();
+			newLike.setPostID(tweet.getId());
+			newLike.setTimestamp(new Timestamp(System.currentTimeMillis()));
+		}
+		else throw new TweetNotFoundException(id);
+
+		return likeRepo.save(newLike);
 	}
 }

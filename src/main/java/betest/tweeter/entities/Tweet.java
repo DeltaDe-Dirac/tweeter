@@ -53,6 +53,10 @@ public class Tweet {
 		this.timestamp = timestamp;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder tweet = new StringBuilder("Tweet [id=");
