@@ -12,6 +12,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 
+import betest.tweeter.entities.Like;
+import betest.tweeter.entities.Retweet;
 import betest.tweeter.entities.Tweet;
 import betest.tweeter.repos.LikeRepository;
 import betest.tweeter.repos.RetweetRepository;
@@ -36,6 +38,12 @@ public class TweeterApplication {
 	public void runAfterStartup() {
 		List<Tweet> allTweets = this.tweetRepo.findAll();
 		LOG.info(String.format("Found tweets: %s", allTweets.size()));
+		
+		List<Like> allLikes = this.likeRepo.findAll();
+		LOG.info(String.format("Found likes: %s", allLikes.size()));
+		
+		List<Retweet> allRetweets = this.reTweetRepo.findAll();
+		LOG.info(String.format("Found retweets: %s", allRetweets.size()));
 	}
 
 	@Bean
